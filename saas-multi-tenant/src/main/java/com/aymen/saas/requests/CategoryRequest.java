@@ -1,0 +1,16 @@
+package com.aymen.saas.requests;
+
+
+import lombok.*;
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoryRequest {
+
+    private String name;
+    private String description;
+
+}

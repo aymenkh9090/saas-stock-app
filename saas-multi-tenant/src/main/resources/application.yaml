@@ -34,3 +34,5 @@ spring:
         multi_tenancy: SCHEMA # We will need it for later
     show-sql: true
     open-in-view: false
+server:
+  port: 8081

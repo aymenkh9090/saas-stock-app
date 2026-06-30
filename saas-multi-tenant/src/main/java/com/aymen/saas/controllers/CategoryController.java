@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/categories")
@@ -36,6 +38,11 @@ public class CategoryController {
     ){
         this.categoryService.update(id, request);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoryResponse>> findAll(){
+        return ResponseEntity.ok(this.categoryService.findAll());
     }
 
     @GetMapping("/{category-id}")

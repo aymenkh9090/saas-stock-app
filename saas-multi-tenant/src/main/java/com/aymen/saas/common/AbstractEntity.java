@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -19,6 +22,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@FilterDef(
+        name = "tenantFilter",
+        parameters = @ParamDef (name = "tenantId" , type = String.class),
+        defaultCondition = "tenant_id =: tenantId"
+)
+@Filter(name = "tenantFilter")
 public class AbstractEntity {
 
     @Id
@@ -34,7 +43,7 @@ public class AbstractEntity {
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at" , nullable = false , insertable = false)
+    @Column(name = "updated_at" , insertable = false)
     private LocalDateTime updatedAt;
 
     @Column(name = "deleted" , nullable = false)
@@ -44,6 +53,9 @@ public class AbstractEntity {
     protected void onCreate(){
         if(this.deleted == null){
             this.deleted = false;
+        }
+        if(this.tenantId == null){
+            this.tenantId = "default";
         }
     }
 

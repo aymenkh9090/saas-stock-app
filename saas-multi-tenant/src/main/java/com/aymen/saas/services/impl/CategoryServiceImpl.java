@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -57,6 +58,14 @@ public class CategoryServiceImpl implements CategoryService {
         return this.categoryRepository.findById(id)
                 .map(this.categoryMapper::toResponse)
                 .orElseThrow(()-> new EntityNotFoundException("Category not found"));
+    }
+
+    @Override
+    public List<CategoryResponse> findAll() {
+        return categoryRepository.findAll()
+                .stream()
+                .map(this.categoryMapper::toResponse)
+                .toList();
     }
 
     @Override

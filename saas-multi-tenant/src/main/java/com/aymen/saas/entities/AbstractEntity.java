@@ -1,4 +1,4 @@
-package com.aymen.saas.common;
+package com.aymen.saas.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,6 @@
 package com.aymen.saas.services.impl;
 
+import com.aymen.saas.common.PageResponse;
 import com.aymen.saas.entities.Category;
 import com.aymen.saas.mappers.CategoryMapper;
 import com.aymen.saas.repositories.CategoryRepository;
@@ -63,12 +64,10 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryResponse> findAll() {
-        return categoryRepository.findAll()
-                .stream()
-                .map(this.categoryMapper::toResponse)
-                .toList();
+    public PageResponse<CategoryResponse> findAll(int page, int size) {
+        return null;
     }
+
 
     @Override
     public void delete(String id) {

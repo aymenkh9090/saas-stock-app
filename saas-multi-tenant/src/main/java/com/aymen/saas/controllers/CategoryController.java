@@ -40,10 +40,10 @@ public class CategoryController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public ResponseEntity<List<CategoryResponse>> findAll(){
-        return ResponseEntity.ok(this.categoryService.findAll());
-    }
+//    @GetMapping
+//    public ResponseEntity<List<CategoryResponse>> findAll(){
+//        return ResponseEntity.ok(this.categoryService.findAll());
+//    }
 
     @GetMapping("/{category-id}")
     public ResponseEntity<CategoryResponse> getCategoryById(

@@ -1,9 +1,6 @@
 package com.aymen.saas.requests;
 
 import com.aymen.saas.entities.TypeMvt;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
@@ -16,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StckMvtRequest {
+public class StockMvtRequest {
 
 
     private TypeMvt typeMvt;

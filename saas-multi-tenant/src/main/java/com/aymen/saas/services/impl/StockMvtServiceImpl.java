@@ -69,6 +69,11 @@ public class StockMvtServiceImpl implements StockMvtService {
     }
 
     @Override
+    public List<StockMvtResponse> findAll() {
+        return List.of();
+    }
+
+    @Override
     public PageResponse<StockMvtResponse> findAll(int page, int size) {
         final PageRequest pageRequest = PageRequest.of(page, size);
         final Page<StockMvt> stockMvts = this.stockMvtRepository.findAll(pageRequest);

@@ -29,7 +29,7 @@ public class TenantFilter  implements Filter {
         if(tenantId == null || tenantId.isBlank()){
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write("{\" error\" : \" Tenant Id is missing in the request geader ,Pleade add yhe header X-TENANT-ID.\" }");
+            response.getWriter().write("{\" error\" : \" Tenant Id is missing in the request header ,Pleade add yhe header X-TENANT-ID.\" }");
             return;
         }
         try{

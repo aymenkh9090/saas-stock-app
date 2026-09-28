@@ -17,14 +17,14 @@ public class TenantHibernateFilter {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Before("execution(* com.aymen.saas.services.impl.*.*(..))")
+    @Before("execution(* com.aymen.saas.repositories.*.*(..))")
     public void activateFilter(){
         final String tenantId = TenantContext.getCurrentTenant();
         if (tenantId != null) {
             final Session session = entityManager.unwrap(Session.class);
 
             // activate the filter to inject tenantId
-            session.enableFilter("TenantFilter")
+            session.enableFilter("tenantFilter")
                     .setParameter("tenantId", tenantId);
         }
     }

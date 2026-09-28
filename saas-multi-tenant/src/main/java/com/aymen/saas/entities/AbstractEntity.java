@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 @FilterDef(
         name = "tenantFilter",
         parameters = @ParamDef (name = "tenantId" , type = String.class),
-        defaultCondition = "tenant_id =: tenantId"
+        defaultCondition = "tenant_id = :tenantId"
 )
 @Filter(name = "tenantFilter")
 public class AbstractEntity {

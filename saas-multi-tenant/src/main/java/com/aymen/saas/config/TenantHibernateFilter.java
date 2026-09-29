@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 
 // this classe that enable automatically our filter declared
-@Aspect
-@Component
+ // @Aspect       we use this in the first approche of saas database
+  // @Component
 public class TenantHibernateFilter {
 
     @PersistenceContext

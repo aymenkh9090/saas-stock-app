@@ -2,6 +2,7 @@ package com.aymen.saas.services.impl;
 
 import com.aymen.saas.common.PageResponse;
 import com.aymen.saas.entities.Category;
+import com.aymen.saas.exceptions.DuplicateRessourceException;
 import com.aymen.saas.mappers.CategoryMapper;
 import com.aymen.saas.repositories.CategoryRepository;
 import com.aymen.saas.requests.CategoryRequest;
@@ -96,7 +97,7 @@ public class CategoryServiceImpl implements CategoryService {
                 this.categoryRepository.findByNameIgnoreCase(name);
         if(category.isPresent()) {
             log.debug("Category with name {} already exists", name);
-            throw  new RuntimeException("Category already exists");
+            throw  new DuplicateRessourceException("Category already exists");
         }
 
     }

@@ -3,6 +3,7 @@ package com.aymen.saas.services.impl;
 import com.aymen.saas.common.PageResponse;
 import com.aymen.saas.entities.Category;
 import com.aymen.saas.entities.Product;
+import com.aymen.saas.exceptions.DuplicateRessourceException;
 import com.aymen.saas.mappers.ProductMapper;
 import com.aymen.saas.repositories.CategoryRepository;
 import com.aymen.saas.repositories.ProductRepository;
@@ -106,7 +107,7 @@ public class ProductServiceImpl implements ProductService {
         if(product.isPresent()) {
             log.debug("Product already exists with reference {}", reference);
             // after that we gonna make a special exceptions "Duplicate Product"
-            throw new RuntimeException("Product already exists with reference " + reference);
+            throw new DuplicateRessourceException("Product already exists with reference " + reference);
         }
 
     }

@@ -1,6 +1,7 @@
 package com.aymen.saas.security;
 
 import com.aymen.saas.config.TenantContext;
+import com.aymen.saas.config.TenantSchemaResolver;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
